@@ -1,0 +1,3 @@
+1. install python & pip (if not already on your Mac/PC)
+2. pip3 install -r requirements.txt
+3. python3 russia_for_lunch.py and let it run...
