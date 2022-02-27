@@ -37,7 +37,8 @@ def printo(message, *, color=0):
 
 
 if __name__ == '__main__':
-    f = open('russian_servers.csv')
+    path = os.path.dirname(os.path.abspath(__file__))
+    f = open(path + '/russian_servers.csv')
     servers = f.read()
     while True:
         all = 0
